@@ -1,0 +1,24 @@
+ext {
+
+    android = [
+            compileSdkVersion: 25,
+            buildToolsVersion: "25.0.2",
+            applicationId    : "com.yunlong.gitbook",
+            minSdkVersion    : 15,
+            targetSdkVersion : 25,
+            versionCode      : 1,
+            versionName      : "0.0.1",
+            multiDexEnabled  : true,
+            publishNonDefault: true
+    ]
+
+    implementation = [
+            "org.jetbrains.kotlin"         : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version",
+            "org.jetbrains.anko"           : "org.jetbrains.anko:anko-common:$anko_version",
+            "com.android.support:appcompat": "com.android.support:appcompat-v7:25.3.1",
+    ]
+
+    testImplementation = [
+            "junit": 'junit:junit:4.12'
+    ]
+}
