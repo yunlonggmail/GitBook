@@ -6,7 +6,6 @@ import android.util.Log
 import android.widget.TabHost
 import com.yunlong.base.mvp.activity.BaseActivity
 import com.yunlong.gitbook.R
-import kotlinx.android.synthetic.main.i_tool_bar.*;
 import kotlinx.android.synthetic.main.a_main.*
 import android.graphics.drawable.Drawable
 import android.support.v4.view.ViewPager
@@ -24,7 +23,9 @@ import com.yunlong.gitbook.main.fragment.MyInformationFragment
 
 
 class MainActivity : BaseActivity(), TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
-
+    /**
+     * 默认的Fragment
+     */
     private var fragments: List<BaseFragment>? = null
 
     override fun getLayoutId(): Int {
@@ -32,7 +33,8 @@ class MainActivity : BaseActivity(), TabHost.OnTabChangeListener, ViewPager.OnPa
     }
 
     override fun initTitleBar() {
-        toolbar.setTitle(R.string.tool_bar_title_main)
+        super.initTitleBar()
+        mToolBar?.title = getString(R.string.tool_bar_title_main)
     }
 
     override fun initView() {

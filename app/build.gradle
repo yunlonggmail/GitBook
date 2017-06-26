@@ -83,5 +83,4 @@ dependencies {
     annotationProcessor rootProject.ext.implementation["com.ryanharter.auto.value:auto-value-gson"]
     annotationProcessor rootProject.ext.implementation["com.gabrielittner.auto.value:auto-value-with"]
     testImplementation rootProject.ext.testImplementation["junit"]
-
 }

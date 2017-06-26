@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">base</string>
+
+    <string name="a_base_web_site">https://github.com/yunlonggmail</string>
 </resources>

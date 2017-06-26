@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import org.jetbrains.anko.find
 
 
 /**
@@ -35,5 +36,11 @@ abstract class BaseFragment(private val mResourceID: Int) : Fragment() {
      */
     abstract fun viewDidLoad()
 
+    /**
+     * findViewById简写
+     */
+    protected fun find(id: Int): View? {
+        return mRootView?.find<View>(id)
+    }
 
 }
