@@ -13,9 +13,24 @@ ext {
     ]
 
     implementation = [
-            "org.jetbrains.kotlin"         : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version",
-            "org.jetbrains.anko"           : "org.jetbrains.anko:anko-common:$anko_version",
-            "com.android.support:appcompat": "com.android.support:appcompat-v7:25.3.1",
+            "org.jetbrains.kotlin"                          : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version",
+            "org.jetbrains.anko"                            : "org.jetbrains.anko:anko-common:$anko_version",
+            "com.android.support:appcompat"                 : "com.android.support:appcompat-v7:25.3.1",
+
+            "io.reactivex.rxjava2"                          : "io.reactivex.rxjava2:rxjava:2.1.1",
+            "com.trello.rxlifecycle2:rxlifecycle"           : "com.trello.rxlifecycle2:rxlifecycle:2.1.0",
+            "com.trello.rxlifecycle2:rxlifecycle-android"   : "com.trello.rxlifecycle2:rxlifecycle-android:2.1.0",
+            "com.trello.rxlifecycle2:rxlifecycle-components": "com.trello.rxlifecycle2:rxlifecycle-components:2.1.0",
+            "com.jakewharton.rxbinding2:rxbinding"          : "com.jakewharton.rxbinding2:rxbinding:2.0.0",
+
+            "com.squareup.retrofit2:retrofit"               : "com.squareup.retrofit2:retrofit:2.3.0",
+            "com.squareup.retrofit2:converter-gson"         : "com.squareup.retrofit2:converter-gson:2.3.0",
+            "com.squareup.retrofit2:adapter-rxjava2"        : "com.squareup.retrofit2:adapter-rxjava2:2.3.0",
+            "com.google.code.gson:gson"                     : "com.google.code.gson:gson:2.8.1",
+            "com.google.auto.value:auto-value"              : "com.google.auto.value:auto-value:1.4.1",
+            "com.ryanharter.auto.value:auto-value-parcel"   : "com.ryanharter.auto.value:auto-value-parcel:0.2.5",
+            "com.ryanharter.auto.value:auto-value-gson"     : "com.ryanharter.auto.value:auto-value-gson:0.4.6",
+            "com.gabrielittner.auto.value:auto-value-with"  : "com.gabrielittner.auto.value:auto-value-with:1.0.0"
     ]
 
     testImplementation = [

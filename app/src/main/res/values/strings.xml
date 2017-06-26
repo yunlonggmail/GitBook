@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">GitBook</string>
+
+    <string name="tool_bar_title_main">主页面</string>
+
+    <string name="a_main_desc">首页</string>
+
+    <string name="f_all_book_list">所有的书籍列表</string>
+    <string name="f_my_book_list">我的数据列表</string>
+    <string name="f_my_information">我的消息</string>
+
+    <string name="main_tab_all_book">首页</string>
+    <string name="main_tab_my_book">MyBook</string>
+    <string name="main_tab_my_info">我</string>
 </resources>
