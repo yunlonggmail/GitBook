@@ -14,4 +14,5 @@
     <string name="main_tab_my_info">我</string>
 
     <string name="a_auth_authorize">登录</string>
+    <string name="a_auth_authorize_fail">登录失败，请重新登录</string>
 </resources>

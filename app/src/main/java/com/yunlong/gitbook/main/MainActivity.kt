@@ -1,7 +1,5 @@
 package com.yunlong.gitbook.main
 
-import android.content.Context
-import android.content.Intent
 import android.util.Log
 import android.widget.TabHost
 import com.yunlong.base.mvp.activity.BaseActivity
@@ -11,15 +9,13 @@ import android.graphics.drawable.Drawable
 import android.support.v4.view.ViewPager
 import android.widget.TextView
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TabWidget
 import com.yunlong.base.mvp.fragment.BaseFragment
 import com.yunlong.gitbook.main.fragment.AllBookListFragment
 import com.yunlong.gitbook.main.fragment.MyBookListFragment
-import com.yunlong.gitbook.main.fragment.MyInformationFragment
+import com.yunlong.gitbook.user.view.MyInformationFragment
 
 
 class MainActivity : BaseActivity(), TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
@@ -107,6 +103,3 @@ class MainActivity : BaseActivity(), TabHost.OnTabChangeListener, ViewPager.OnPa
     }
 
 }
-
-
-

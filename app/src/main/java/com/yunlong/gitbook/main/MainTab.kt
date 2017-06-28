@@ -1,11 +1,9 @@
 package com.yunlong.gitbook.main
 
-import android.support.v4.app.Fragment
-import com.yunlong.base.mvp.fragment.BaseFragment
 import com.yunlong.gitbook.R
 import com.yunlong.gitbook.main.fragment.AllBookListFragment
 import com.yunlong.gitbook.main.fragment.MyBookListFragment
-import com.yunlong.gitbook.main.fragment.MyInformationFragment
+import com.yunlong.gitbook.user.view.MyInformationFragment
 
 /**
  * Created by shiyunlong on 2017/6/26.

@@ -1,23 +1,33 @@
-package com.yunlong.gitbook.auth
+package com.yunlong.gitbook.auth.view
 
+import android.app.Activity
+import android.content.Context
 import android.net.Uri
 import com.yunlong.base.mvp.activity.BaseWebActivity
 import com.yunlong.base.mvp.http.HttpRequestParams
 import com.yunlong.base.util.ToastUtils
 import com.yunlong.gitbook.R
 import com.yunlong.gitbook.api.ApiConstants
+import com.yunlong.gitbook.auth.contract.AuthContract
+import com.yunlong.gitbook.auth.model.AccessToken
+import com.yunlong.gitbook.auth.presenter.AuthPresenter
 
 /**
  * Created by shiyunlong on 2017/6/26.
  * 验证界面
  */
-class AuthActivity : BaseWebActivity() {
+class AuthActivity : BaseWebActivity(), AuthContract.View {
     /**
      * 验证Url
      */
     var mAuthUrl: String = ""
+    /**
+     * 主持人
+     */
+    var mPresenter: AuthContract.Presenter? = null
 
     override fun processData() {
+        mPresenter = AuthPresenter(this)
         mNeedProcessUrl = true
         initAuthUrl()
         initTitle()
@@ -51,8 +61,8 @@ class AuthActivity : BaseWebActivity() {
         if (isAuthAuthorizeRedirectUri(uri)) {
             val code: String? = uri?.getQueryParameter(AuthConfig.RESPONSE_TYPE_CODE_KEY)
             code?.let {
+                mPresenter?.getAccessToken(code)
                 ToastUtils.show(mContext, code)
-                finish()
             }
         } else {
             loadUrl(mWebView, uri.toString())
@@ -68,25 +78,67 @@ class AuthActivity : BaseWebActivity() {
             return uri.scheme == redirectUri.scheme && uri.host == redirectUri.host && uri.path == redirectUri.path
         } ?: return false
     }
+
+    override fun setPresenter(presenter: AuthContract.Presenter) {
+        this.mPresenter = presenter
+    }
+
+    override fun getContext(): Context {
+        return mContext as Context
+    }
+
+    override fun setProgressDialogVisibility(flag: Boolean) {
+        if (flag) {
+            showProgressDialog(true)
+        } else {
+            hideProgressDialog()
+        }
+    }
+
+    /**
+     * 获取Token失败
+     */
+    override fun getAccessTokenFailed() {
+        ToastUtils.show(mContext, R.string.a_auth_authorize_fail)
+        finish()
+    }
+
+    /**
+     * 获取Token成功
+     */
+    override fun getAccessTokenSuccess() {
+        setResult(Activity.RESULT_OK)
+        finish()
+    }
 }
 
-class AuthConfig {
-    companion object {
-        /**
-         * Client_ID的Key
-         */
-        val CLIENT_ID_KEY: String = "client_id"
-        /**
-         * 回调URI的KEY
-         */
-        val REDIRECT_URI_KEY: String = "redirect_uri"
-        /**
-         * 回调类型
-         */
-        val RESPONSE_TYPE_KEY: String = "response_type"
-        /**
-         * 返回码
-         */
-        val RESPONSE_TYPE_CODE_KEY: String = "code"
-    }
+object AuthConfig {
+    /**
+     * Client_ID的Key
+     */
+    const val CLIENT_ID_KEY: String = "client_id"
+    /**
+     * Client_Secret的Key
+     */
+    const val CLIENT_SECRET_KEY: String = "client_secret"
+    /**
+     * 回调URI的KEY
+     */
+    const val REDIRECT_URI_KEY: String = "redirect_uri"
+    /**
+     * 回调类型
+     */
+    const val RESPONSE_TYPE_KEY: String = "response_type"
+    /**
+     * 返回码
+     */
+    const val RESPONSE_TYPE_CODE_KEY: String = "code"
+    /**
+     * Grant类型
+     */
+    const val GRANT_TYPE_KEY: String = "grant_type"
+    /**
+     * Grant的值
+     */
+    const val GRANT_TYPE_VALUE: String = "authorization_code"
 }

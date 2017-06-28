@@ -3,6 +3,7 @@ package com.yunlong.gitbook
 import android.app.Application
 import android.content.Context
 import android.support.multidex.MultiDex
+import com.yunlong.gitbook.auth.manager.GitBookAccountManager
 
 /**
  * Created by shiyunlong on 2017/6/23.
@@ -23,13 +24,12 @@ class GitBookApp : Application() {
     override fun onCreate() {
         super.onCreate()
         initAccessToken()
-
     }
 
     /**
      * 初始化Token
      */
-    fun initAccessToken(){
-
+    fun initAccessToken() {
+        GitBookAccountManager.initAccessToken(this)
     }
 }

@@ -27,10 +27,10 @@ ext {
             "com.squareup.retrofit2:converter-gson"         : "com.squareup.retrofit2:converter-gson:2.3.0",
             "com.squareup.retrofit2:adapter-rxjava2"        : "com.squareup.retrofit2:adapter-rxjava2:2.3.0",
             "com.google.code.gson:gson"                     : "com.google.code.gson:gson:2.8.1",
-            "com.google.auto.value:auto-value"              : "com.google.auto.value:auto-value:1.4.1",
-            "com.ryanharter.auto.value:auto-value-parcel"   : "com.ryanharter.auto.value:auto-value-parcel:0.2.5",
-            "com.ryanharter.auto.value:auto-value-gson"     : "com.ryanharter.auto.value:auto-value-gson:0.4.6",
-            "com.gabrielittner.auto.value:auto-value-with"  : "com.gabrielittner.auto.value:auto-value-with:1.0.0"
+
+            "com.facebook.stetho:stetho"                    : "com.facebook.stetho:stetho:1.5.0",
+            "com.facebook.stetho:stetho-okhttp3"            : "com.facebook.stetho:stetho-okhttp3:1.5.0"
+
     ]
 
     testImplementation = [

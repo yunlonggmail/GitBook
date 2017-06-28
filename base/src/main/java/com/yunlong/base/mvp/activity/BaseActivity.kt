@@ -1,9 +1,11 @@
 package com.yunlong.base.mvp.activity
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.yunlong.base.R
 import kotlinx.android.synthetic.main.i_tool_bar.*
 import org.jetbrains.anko.find
@@ -12,7 +14,7 @@ import org.jetbrains.anko.find
  * Created by shiyunlong on 2017/6/23.
  * Activity基类
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : RxAppCompatActivity() {
     /**
      * 上下文
      */
@@ -21,6 +23,10 @@ abstract class BaseActivity : AppCompatActivity() {
      * ToolBar
      */
     open var mToolBar: Toolbar? = null
+    /**
+     * 进度条
+     */
+    var mProgressDialog: ProgressDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,4 +60,23 @@ abstract class BaseActivity : AppCompatActivity() {
      * 初始化数据
      */
     abstract fun initData()
+
+    /**
+     * 展示对话框
+     */
+    fun showProgressDialog(cancelable: Boolean) {
+        mProgressDialog?.let { mProgressDialog?.dismiss() }
+        mProgressDialog = ProgressDialog.show(this, null, getString(R.string.base_please_wait_for_a_later), true)
+        mProgressDialog?.setCancelable(cancelable)
+    }
+
+    /**
+     * 隐藏Dialog
+     */
+    fun hideProgressDialog() {
+        if (mProgressDialog != null && mProgressDialog?.isShowing as Boolean) {
+            mProgressDialog?.dismiss();
+            mProgressDialog = null;
+        }
+    }
 }

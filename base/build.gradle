@@ -33,8 +33,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation rootProject.ext.implementation["org.jetbrains.kotlin"]
     implementation rootProject.ext.implementation["org.jetbrains.anko"]
     implementation rootProject.ext.implementation["com.android.support:appcompat"]
+    implementation rootProject.ext.implementation["io.reactivex.rxjava2"]
+    implementation rootProject.ext.implementation["com.trello.rxlifecycle2:rxlifecycle"]
+    implementation rootProject.ext.implementation["com.trello.rxlifecycle2:rxlifecycle-components"]
+    implementation rootProject.ext.implementation["com.trello.rxlifecycle2:rxlifecycle-android"]
+    implementation rootProject.ext.implementation["com.jakewharton.rxbinding2:rxbinding"]
     testImplementation rootProject.ext.testImplementation["junit"]
 }

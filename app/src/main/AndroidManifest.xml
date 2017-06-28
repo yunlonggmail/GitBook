@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".auth.AuthActivity"
+            android:name=".auth.view.AuthActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
     </application>

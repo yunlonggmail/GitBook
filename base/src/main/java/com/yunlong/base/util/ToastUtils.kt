@@ -18,7 +18,7 @@ object ToastUtils {
     /**
      * 展示Toast
      */
-    fun show(context: Context, strId: Int) {
+    fun show(context: Context?, strId: Int) {
         if (strId > 0) {
             Toast.makeText(context, strId, Toast.LENGTH_SHORT).show()
         }

@@ -295,9 +295,5 @@ open class BaseWebConfig {
          * 电话Scheme
          */
         val SCHEME_TEL = "tel"
-        /**
-         * 邮箱Scheme
-         */
-        val SCHEME_MAIL = "mail"
     }
 }
