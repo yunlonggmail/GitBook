@@ -3,7 +3,7 @@ package com.yunlong.gitbook.main
 import com.yunlong.gitbook.R
 import com.yunlong.gitbook.main.fragment.AllBookListFragment
 import com.yunlong.gitbook.main.fragment.MyBookListFragment
-import com.yunlong.gitbook.user.view.MyInformationFragment
+import com.yunlong.gitbook.user.view.AccountInformationFragment
 
 /**
  * Created by shiyunlong on 2017/6/26.
@@ -18,7 +18,7 @@ enum class MainTab(private var idx: Int,
 
     TOPICS_LIST(2, R.string.main_tab_my_book, R.drawable.tab_icon_insurance, MyBookListFragment::class.java),
 
-    ME(3, R.string.main_tab_my_info, R.drawable.tab_icon_me, MyInformationFragment::class.java);
+    ME(3, R.string.main_tab_my_info, R.drawable.tab_icon_me, AccountInformationFragment::class.java);
 
 
     fun getIdx(): Int {

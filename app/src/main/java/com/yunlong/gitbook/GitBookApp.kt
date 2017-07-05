@@ -3,6 +3,7 @@ package com.yunlong.gitbook
 import android.app.Application
 import android.content.Context
 import android.support.multidex.MultiDex
+import com.yunlong.gitbook.api.ServiceGenerator
 import com.yunlong.gitbook.auth.manager.GitBookAccountManager
 
 /**
@@ -24,6 +25,7 @@ class GitBookApp : Application() {
     override fun onCreate() {
         super.onCreate()
         initAccessToken()
+        ServiceGenerator.init(this)
     }
 
     /**

@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken
 import com.yunlong.base.util.SPUtils
 import com.yunlong.base.util.StringUtils
 import com.yunlong.gitbook.auth.model.AccessToken
+import com.yunlong.gitbook.user.model.User
 import java.lang.reflect.Type
 
 /**
@@ -19,6 +20,10 @@ object GitBookAccountManager {
      * Token
      */
     var mAccessToken: AccessToken? = null
+    /**
+     * 用户信息
+     */
+    var mAccount: User? = null
 
     /**
      * 得到Token
@@ -58,6 +63,19 @@ object GitBookAccountManager {
         SPUtils.saveDefaultStrPre(context.applicationContext, AccountConfig.ACCESS_TOKEN_KEY, accessTokenJson)
     }
 
+    /**
+     * 获取账户信息
+     */
+    fun getAccountInfo(): User? {
+        return mAccount
+    }
+
+    /**
+     * 设置AccountInfo
+     */
+    fun setAccountInfo(account: User?) {
+        this.mAccount = account
+    }
 
 }
 

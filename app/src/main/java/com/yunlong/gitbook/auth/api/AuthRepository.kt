@@ -26,8 +26,7 @@ class AuthRepository {
      * 获取AccessToken
      */
     fun getAccessToken(code: String?): Observable<Response<AccessToken>>? {
-        return mAccessTokenService?.getAccessToken(ApiConstants.POST_GIT_BOOK_AUTH_ACCESS_TOKEN,
-                ApiConstants.GIT_BOOK_CLIENT_ID,
+        return mAccessTokenService?.getAccessToken(ApiConstants.GIT_BOOK_CLIENT_ID,
                 ApiConstants.GIT_BOOK_CLIENT_SECRET,
                 code,
                 AuthConfig.GRANT_TYPE_VALUE)

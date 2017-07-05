@@ -1,20 +1,25 @@
 package com.yunlong.gitbook.user.view
 
+import android.accounts.AccountManager
 import android.app.Activity
 import android.content.Intent
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import com.yunlong.base.mvp.fragment.BaseFragment
+import com.yunlong.base.mvp.view.BaseView
 import com.yunlong.base.util.ToastUtils
 import com.yunlong.gitbook.R
 import com.yunlong.gitbook.auth.manager.GitBookAccountManager
 import com.yunlong.gitbook.auth.view.AuthActivity
+import com.yunlong.gitbook.user.contract.UserContract
+import com.yunlong.gitbook.user.model.User
 
 /**
  * Created by shiyunlong on 2017/6/23.
  * 所有的Fragment
  */
-class MyInformationFragment : BaseFragment(R.layout.f_my_information), View.OnClickListener {
+class AccountInformationFragment : BaseFragment(R.layout.f_account_information), View.OnClickListener, UserContract.View {
 
     /**
      * 伴生对象
@@ -25,25 +30,36 @@ class MyInformationFragment : BaseFragment(R.layout.f_my_information), View.OnCl
          */
         val REQUEST_CODE_AUTH: Int = 0x1001
 
-        fun newInstance(): MyInformationFragment {
-            val fragment = MyInformationFragment();
+        fun newInstance(): AccountInformationFragment {
+            val fragment = AccountInformationFragment();
             return fragment;
         }
     }
 
     /**
+     * 主持人
+     */
+    var mPresenter: UserContract.Presenter? = null
+
+    /**
      * 登录按钮
      */
     var btnConfirm: Button? = null
+    /**
+     * tvInfo
+     */
+    var mTvInfo: TextView? = null
 
     /**
      * 所有的BookList
      */
     override fun viewDidLoad() {
         initView()
+        initData()
     }
 
     fun initView() {
+        mTvInfo = find(R.id.tv_info) as TextView?
         btnConfirm = find(R.id.btn_confirm) as Button?
         btnConfirm?.setOnClickListener(this)
     }
@@ -79,4 +95,37 @@ class MyInformationFragment : BaseFragment(R.layout.f_my_information), View.OnCl
             }
         }
     }
+
+    fun initData() {
+        val mUser: User? = GitBookAccountManager.getAccountInfo()
+        mUser?.let {
+            showInfo(mUser)
+        } ?: mPresenter?.getInfo()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val mUser: User? = GitBookAccountManager.getAccountInfo()
+        mUser?.let { showInfo(mUser) }
+    }
+
+    override fun setPresenter(presenter: UserContract.Presenter) {
+        this.mPresenter = presenter
+    }
+
+    override fun setProgressDialogVisibility(flag: Boolean) {
+        if (flag)
+            showProgressDialog(true)
+        else
+            hideProgressDialog()
+    }
+
+    override fun showInfo(user: User?) {
+        mTvInfo?.text = getString(R.string.f_account_info, user.toString())
+    }
+
+    override fun getInfoFailed() {
+        mTvInfo?.text = getString(R.string.f_account_info, getString(R.string.f_account_info_failed))
+    }
+
 }

@@ -2,6 +2,8 @@ package com.yunlong.gitbook.api
 
 import android.content.Context
 import com.facebook.stetho.okhttp3.StethoInterceptor
+import com.google.gson.FieldNamingPolicy
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.yunlong.gitbook.BuildConfig
 import com.yunlong.gitbook.auth.model.AccessToken
@@ -33,6 +35,8 @@ class ServiceGenerator {
          * 超时
          */
         val TIME_OUT: Long = 20
+
+        var mGson: Gson = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").create()
 
         /**
          * 初始化
@@ -74,7 +78,7 @@ class ServiceGenerator {
 
                 val retrofitBuilder: Retrofit.Builder = Retrofit.Builder()
                         .baseUrl(ApiConstants.GIT_BOOK_BASE_API)
-                        .addConverterFactory(GsonConverterFactory.create())
+                        .addConverterFactory(GsonConverterFactory.create(mGson))
                         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 
                 val httpClient: OkHttpClient = httpClientBuilder.build()

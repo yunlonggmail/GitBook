@@ -24,11 +24,6 @@ interface AuthContract {
      */
     interface View : BaseView<Presenter> {
         /**
-         * 设置对话框
-         */
-        fun setProgressDialogVisibility(flag: Boolean)
-
-        /**
          * 获取AccessToken成功
          */
         fun getAccessTokenSuccess()

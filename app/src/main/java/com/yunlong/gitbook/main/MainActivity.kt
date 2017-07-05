@@ -15,7 +15,8 @@ import android.widget.TabWidget
 import com.yunlong.base.mvp.fragment.BaseFragment
 import com.yunlong.gitbook.main.fragment.AllBookListFragment
 import com.yunlong.gitbook.main.fragment.MyBookListFragment
-import com.yunlong.gitbook.user.view.MyInformationFragment
+import com.yunlong.gitbook.user.presenter.AccountPresenter
+import com.yunlong.gitbook.user.view.AccountInformationFragment
 
 
 class MainActivity : BaseActivity(), TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
@@ -47,7 +48,9 @@ class MainActivity : BaseActivity(), TabHost.OnTabChangeListener, ViewPager.OnPa
      * 初始化Fragments
      */
     fun initFragments() {
-        fragments = listOf(AllBookListFragment.newInstance(), MyBookListFragment.newInstance(), MyInformationFragment.newInstance())
+        val accountInformationFragment: AccountInformationFragment = AccountInformationFragment.newInstance()
+        AccountPresenter(accountInformationFragment)
+        fragments = listOf(AllBookListFragment.newInstance(), MyBookListFragment.newInstance(), accountInformationFragment)
     }
 
     /**

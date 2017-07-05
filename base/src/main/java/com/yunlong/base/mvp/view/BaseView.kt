@@ -16,4 +16,9 @@ interface BaseView<T> {
      * 获取Context
      */
     fun getContext(): Context
+
+    /**
+     * 设置对话框
+     */
+    fun setProgressDialogVisibility(flag: Boolean)
 }
