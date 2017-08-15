@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">base</string>
+
+    <string name="base_git_book">GitBook</string>
     <string name="base_please_wait_for_a_later">请稍后&#8230;</string>
 
     <string name="a_base_web_site">https://github.com/yunlonggmail</string>

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.trello.rxlifecycle2.components.support.RxFragment
 import com.yunlong.base.R
+import com.yunlong.base.view.GitBookDialog
 import org.jetbrains.anko.find
 
 
@@ -26,7 +27,7 @@ abstract class BaseFragment(private val mResourceID: Int) : RxFragment() {
     /**
      * 进度条
      */
-    var mProgressDialog: ProgressDialog? = null
+    var mProgressDialog: GitBookDialog? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mLayoutInflater = inflater;
@@ -52,8 +53,7 @@ abstract class BaseFragment(private val mResourceID: Int) : RxFragment() {
      */
     fun showProgressDialog(cancelable: Boolean) {
         mProgressDialog?.let { mProgressDialog?.dismiss() }
-        mProgressDialog = ProgressDialog.show(activity, null, getString(R.string.base_please_wait_for_a_later), true)
-        mProgressDialog?.setCancelable(cancelable)
+        mProgressDialog = GitBookDialog(activity).show(getString(R.string.base_please_wait_for_a_later), cancelable)
     }
 
     /**

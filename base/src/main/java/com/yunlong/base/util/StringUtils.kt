@@ -3,7 +3,6 @@ package com.yunlong.base.util
 import android.text.TextUtils
 
 
-
 /**
  * Created by shiyunlong on 2017/6/28.
  * 字符串工具类
@@ -16,7 +15,7 @@ object StringUtils {
      * *
      * @return
      */
-    fun isEmpty(dstString: String): Boolean {
+    fun isEmpty(dstString: CharSequence?): Boolean {
         return TextUtils.isEmpty(dstString) || "null" == dstString
     }
 }

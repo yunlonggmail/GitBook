@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.yunlong.base.R
+import com.yunlong.base.view.GitBookDialog
 import kotlinx.android.synthetic.main.i_tool_bar.*
 import org.jetbrains.anko.find
 
@@ -26,7 +27,7 @@ abstract class BaseActivity : RxAppCompatActivity() {
     /**
      * 进度条
      */
-    var mProgressDialog: ProgressDialog? = null
+    var mProgressDialog: GitBookDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,8 +67,7 @@ abstract class BaseActivity : RxAppCompatActivity() {
      */
     fun showProgressDialog(cancelable: Boolean) {
         mProgressDialog?.let { mProgressDialog?.dismiss() }
-        mProgressDialog = ProgressDialog.show(this, null, getString(R.string.base_please_wait_for_a_later), true)
-        mProgressDialog?.setCancelable(cancelable)
+        mProgressDialog = GitBookDialog(this).show(getString(R.string.base_please_wait_for_a_later), cancelable)
     }
 
     /**

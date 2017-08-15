@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LoadingView">
+        <attr name="lv_bottom_text_stroke_color" format="color" />
+        <attr name="lv_bottom_text_fill_color" format="color" />
+        <attr name="lv_top_text_stroke_color" format="color" />
+        <attr name="lv_top_text_fill_color" format="color" />
+        <attr name="lv_text" format="string" />
+        <attr name="lv_text_size" format="dimension" />
+        <attr name="lv_text_stroke_width" format="dimension" />
+        <attr name="lv_stroke_color" format="color" />
+        <attr name="lv_stroke_width" format="dimension" />
+        <attr name="lv_stroke_radius" format="dimension" />
+        <attr name="lv_fill_color" format="color" />
+    </declare-styleable>
+
+</resources>

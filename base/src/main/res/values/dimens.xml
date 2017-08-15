@@ -14,6 +14,11 @@
     <dimen name="normal_width_9">9dp</dimen>
     <dimen name="normal_width_9_5">9.5dp</dimen>
     <dimen name="normal_width_10">10dp</dimen>
+    <dimen name="normal_width_20">20dp</dimen>
+    <dimen name="normal_width_40">40dp</dimen>
+    <dimen name="normal_width_50">50dp</dimen>
+    <dimen name="normal_width_60">60dp</dimen>
+    <dimen name="normal_width_100">100dp</dimen>
 
     <dimen name="text_size_normal_1">11sp</dimen>
     <dimen name="text_size_normal_2">12sp</dimen>

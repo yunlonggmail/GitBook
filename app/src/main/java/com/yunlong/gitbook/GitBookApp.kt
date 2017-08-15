@@ -3,6 +3,7 @@ package com.yunlong.gitbook
 import android.app.Application
 import android.content.Context
 import android.support.multidex.MultiDex
+import com.yunlong.base.util.DisplayUtils
 import com.yunlong.gitbook.api.ServiceGenerator
 import com.yunlong.gitbook.auth.manager.GitBookAccountManager
 
@@ -26,6 +27,7 @@ class GitBookApp : Application() {
         super.onCreate()
         initAccessToken()
         ServiceGenerator.init(this)
+        DisplayUtils.init(this)
     }
 
     /**

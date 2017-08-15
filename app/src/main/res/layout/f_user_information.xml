@@ -8,10 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/top"
+            android:layout_width="@dimen/normal_width_100"
+            android:layout_height="@dimen/normal_width_100"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/tu" />
+
         <TextView
             android:id="@+id/tv_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/top"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:text="@string/f_my_information"
