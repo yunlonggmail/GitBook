@@ -4,6 +4,7 @@ import android.content.Context
 import android.support.v4.app.FragmentTabHost
 import android.util.AttributeSet
 import android.view.View
+import android.widget.ImageView
 
 /**
  * Created by shiyunlong on 2017/6/26.
@@ -45,7 +46,7 @@ open class MainTabHost(context: Context, attrs: AttributeSet) : FragmentTabHost(
      */
     fun showNoticeIcon(id: Int) {
         val view = currentTabView
-        val ivNotice = view!!.findViewById(id)
+        val ivNotice = view.findViewById<ImageView>(id) //view!!.findViewById(id)
         ivNotice.visibility = View.VISIBLE
     }
 
